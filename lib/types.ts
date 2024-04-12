@@ -1,3 +1,6 @@
+// Types
+import type { ReactNode } from 'react';
+
 export type Location = {
   id: string;
   type: string;
@@ -66,4 +69,10 @@ export type Weather = {
   temp: number;
   lat: number;
   slp: number;
+};
+
+export type Route = {
+  text: string;
+  href: string;
+  icon: ReactNode;
 };

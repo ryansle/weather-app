@@ -34,7 +34,7 @@ const Forecast = (props: ForecastProps) => {
               height={30}
               alt={description}
             />
-            <p className='text-left ml-4'>
+            <p className='text-left ml-4 text-xs lg:text-xl'>
               {description}
             </p>
           </div>
@@ -49,12 +49,13 @@ const Forecast = (props: ForecastProps) => {
 
       <div className='flex justify-between items-center'>
         <div>
-          <p>
+          <p className='text-xs text-left lg:text-xl'>
             Wind speeds of {wind_spd} mph in the {wind_cdir_full} direction
           </p>
         </div>
+        <div className='w-10' />
         <div>
-          <p>Feels like {app_temp}º</p>
+          <p className='text-xs text-right lg:text-xl'>Feels like {app_temp}º</p>
         </div>
       </div>
     </div>

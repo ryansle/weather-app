@@ -52,14 +52,14 @@ const Search = (props: SearchProps) => {
     <div className='w-full relative'>
       <div className='grid grid-cols-12'>
         <input
-          className='rounded-l-lg h-12 w-full px-4 text-black col-span-11'
+          className='rounded-l-lg h-12 w-full px-4 text-black col-span-10 xl:col-span-11'
           placeholder='Start typing a city name...'
           onChange={handleChange}
           value={searchTerm}
         />
 
         <button
-          className='col-span-1 rounded-r border font-semibold tracking-wider border-gray-600 hover:border-white'
+          className='col-span-2 xl:col-span-1 rounded-r border font-semibold tracking-wider border-gray-600 hover:border-white'
           onClick={clearPage}
         >
           Clear

@@ -1,23 +1,26 @@
+// Types
+import type { Location } from '@/lib/types';
+
 type SearchResultsProps = {
-  name: string;
-  setSelected: (name: string) => void;
+  location: Location;
+  setSelected: (location: (Location | null)) => void;
   setSearchTerm: (name: string) => void;
 };
 
 const SearchResults = (props: SearchResultsProps) => {
-  const { name, setSelected, setSearchTerm } = props;
+  const { location, setSelected, setSearchTerm } = props;
 
-  const handleClick = (name: string) => {
-    setSearchTerm(name);
-    setSelected(name);
+  const handleClick = (location: Location) => {
+    setSearchTerm(location.place_name ?? '');
+    setSelected(location ?? null);
   };
 
   return (
     <button
       className='border-b w-full py-3 text-left px-10 truncate hover:font-semibold hover:underline'
-      onClick={() => handleClick(name)}
+      onClick={() => handleClick(location)}
     >
-      {name}
+      {location.place_name}
     </button>
   );
 };

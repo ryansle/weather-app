@@ -9,8 +9,14 @@ import { SearchResults } from '@/components/search';
 import type { ChangeEvent } from 'react';
 import type { Location } from '@/lib/types';
 
-const Search = () => {
-  const [selected, setSelected] = useState<string>('');
+type SearchProps = {
+  selectedLocation: Location;
+  setSelectedLocation: (location: (Location | null)) => void;
+};
+
+const Search = (props: SearchProps) => {
+  const { selectedLocation, setSelectedLocation } = props;
+
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [locations, setLocations] = useState<Location[]>([]);
 
@@ -27,7 +33,7 @@ const Search = () => {
     fetchMatchingLocations();
 
     if (searchTerm === '') {
-      setSelected('');
+      setSelectedLocation(null);
     }
   }, [searchTerm]);
 
@@ -46,13 +52,13 @@ const Search = () => {
         value={searchTerm}
       />
 
-      {locations.length !== 0 && selected === '' && (
+      {locations.length !== 0 && !selectedLocation && (
         <div className='border rounded mt-4'>
           {locations?.map((location, index) => (
             <SearchResults
               key={index}
-              name={location.place_name}
-              setSelected={setSelected}
+              location={location}
+              setSelected={setSelectedLocation}
               setSearchTerm={setSearchTerm}
             />
           ))}

@@ -20,8 +20,6 @@ const Forecast = (props: ForecastProps) => {
 
   const imageUrl = `https://cdn.weatherbit.io/static/img/icons/${icon}.png`
 
-  console.log(imageUrl)
-
   return (
     <div className='border rounded-lg p-4 space-y-4'>
       <div className='flex justify-between items-center'>
@@ -36,7 +34,7 @@ const Forecast = (props: ForecastProps) => {
               height={30}
               alt={description}
             />
-            <p className='text-left'>
+            <p className='text-left ml-4'>
               {description}
             </p>
           </div>

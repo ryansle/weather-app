@@ -31,11 +31,10 @@ const WeatherView = (props: WeatherViewProps) => {
     fetchWeather();
   }, [location]);
 
-  console.log(weather);
 
   return (
     <div>
-      {weather?.map((item, index) => (
+      {location && weather?.map((item, index) => (
         <Forecast
           key={index}
           forecast={item}

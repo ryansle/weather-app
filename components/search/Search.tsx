@@ -43,14 +43,28 @@ const Search = (props: SearchProps) => {
     setSearchTerm(term);
   };
 
+  const clearPage = () => {
+    setSearchTerm('');
+    setSelectedLocation(null);
+  };
+
   return (
     <div className='w-full relative'>
-      <input
-        className='rounded-lg h-12 w-full px-4 text-black'
-        placeholder='Start typing a city name...'
-        onChange={handleChange}
-        value={searchTerm}
-      />
+      <div className='grid grid-cols-12'>
+        <input
+          className='rounded-l-lg h-12 w-full px-4 text-black col-span-11'
+          placeholder='Start typing a city name...'
+          onChange={handleChange}
+          value={searchTerm}
+        />
+
+        <button
+          className='col-span-1 rounded-r border font-semibold tracking-wider border-gray-600 hover:border-white'
+          onClick={clearPage}
+        >
+          Clear
+        </button>
+      </div>
 
       {locations.length !== 0 && !selectedLocation && (
         <div className='border rounded mt-4'>

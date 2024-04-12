@@ -5,12 +5,15 @@ import { useState } from 'react';
 // Components
 import NextLink from 'next/link';
 import { Search } from '@/components/search';
+import { WeatherView } from '@/components/weather';
 
 // Types
 import type { Location } from '@/lib/types';
 
 const Home = () => {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>();
+
+  console.log(selectedLocation);
 
   return (
     <div className='text-center px-8 py-10 space-y-4 xl:px-96 xl:py-40'>
@@ -31,6 +34,9 @@ const Home = () => {
         selectedLocation={selectedLocation as Location}
         setSelectedLocation={setSelectedLocation}
       />
+
+      <WeatherView location={selectedLocation as Location} />
+
     </div>
   );
 };

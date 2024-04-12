@@ -14,7 +14,7 @@ export type Location = {
   center: number[];
   geometry: {
     type: string;
-    coordinates: number[]
+    coordinates: number[];
   };
   context: {
     id: string;
@@ -50,7 +50,7 @@ export type Weather = {
   };
   uv: number;
   aqi: number;
-  station: number:
+  station: number;
   sources: string[];
   wind_dir: number;
   elev_angle: number;

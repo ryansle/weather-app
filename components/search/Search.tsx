@@ -66,7 +66,7 @@ const Search = (props: SearchProps) => {
         </button>
       </div>
 
-      {locations.length !== 0 && !selectedLocation && (
+      {locations?.length !== 0 && !selectedLocation && (
         <div className='border rounded mt-4'>
           {locations?.map((location, index) => (
             <SearchResults
